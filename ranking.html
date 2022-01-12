@@ -98,7 +98,7 @@
 			margin: 0;
 			padding: 0;
 			border: 0;
-			background-image: url(fundo.jpg);
+			background-image: url(fundo_ranking.jpg);
 			background-position: top left;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -143,20 +143,16 @@
 			opacity: 1;
 		}
 
-		h1 {
+		h1, h2 {
 			font-size: 1px;
 			color: transparent;
 		}
 
-		input, input:focus, button, button:focus {
-			outline: none;
-		}
-
-		input {
+		table {
 			position: absolute;
 			left: 27.34375%; /* 525px / 1920px */
+			top: 40.277777777777777777777777777778%; /* 420px / 1080px */
 			width: 45.3125%; /* (1920px - 525px - 525px) / 1920px */
-			height: 7.5%; /* 81px / 1080px */
 			border-radius: 0;
 			box-shadow: none;
 			border: none;
@@ -168,19 +164,88 @@
 			font-size: inherit;
 			box-sizing: border-box;
 			text-align: left;
-			padding: 0 0.5em 0 2.75em;
+			border-collapse: collapse;
+			font-size: 0.65rem;
 		}
 
-		#nome {
-			top: 45.2777777778%; /* 489px / 1080px */
+		td {
+			white-space: nowrap;
+			padding: 0.2rem;
 		}
 
-		#email {
-			top: 55.462962963%; /* 599px / 1080px */
+		tr.ultima {
+			font-size: 0.5rem;
 		}
 
-		#celular {
-			top: 65.7407407407%; /* 710px / 1080px */
+		tr.ultima > td {
+			text-align: center;
+		}
+
+		.barra {
+			display: inline-block;
+			box-sizing: border-box;
+			border: none;
+			padding: none;
+			vertical-align: middle;
+			height: 1em;
+			width: 100%;
+		}
+
+		.barra1 {
+			background-color: #f9a760;
+		}
+
+		.barra2 {
+			background-color: #99d100;
+		}
+
+		.barra3 {
+			background-color: #de7777;
+		}
+
+		.barra4 {
+			background-color: #aeff00;
+		}
+
+		.barra5 {
+			background-color: #00e4ab;
+		}
+
+		.barra6 {
+			background-color: #f9a760;
+		}
+
+		.barra7 {
+			background-color: #99d100;
+		}
+
+		.barra8 {
+			background-color: #de7777;
+		}
+
+		.coluna1 {
+			width: 40%;
+			text-align: right;
+		}
+
+		.coluna1 > span {
+			display: inline-block;
+			vertical-align: middle;
+			/*font-weight: bold;*/
+			height: 1.1em;
+			width: 7.5rem;
+			max-width: 7.5rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.coluna2 {
+			width: 35%;
+		}
+
+		.coluna3 {
+			width: 25%;
+			padding-left: 0.5em;
 		}
 
 		#enviar {
@@ -219,11 +284,10 @@
 <body>
 	<noscript>Você precisa habilitar o JavaScript para poder acessar a página :(</noscript>
 	<form id="main">
-		<h1>Bem-vindo ao Game da Memória Mosaic Fertilizantes.</h1>
-		<input type="text" spellcheck="false" id="nome" maxlength="100" />
-		<input type="email" spellcheck="false" id="email" maxlength="100" />
-		<input type="text" spellcheck="false" id="celular" maxlength="15" placeholder="(99) 99999-9999" />
-		<button type="submit" id="enviar">quero jogar</button>
+		<h1>Ranking</h1>
+		<h2>Seu desempenho foi memorável? Sua produtividade pode ser ainda maior. Entre em contato com a Mosaic Fertilizantes e conte com as nossas soluções.</h2>
+		<table id="tabela"></table>
+		<button type="button" id="enviar" onclick="abrirJogo()">quero jogar</button>
 	</form>
 	<div id="cover" class="fade visible"></div>
 
@@ -360,61 +424,131 @@
 
 		ajustarJanela();
 
-		function cancelEvent(evt) {
-			if (evt) {
-				if ("isCancelled" in evt)
-					evt.isCancelled = true;
-				if ("preventDefault" in evt)
-					evt.preventDefault();
-				if ("stopPropagation" in evt)
-					evt.stopPropagation();
-			}
-			return false;
-		}
-
 		var emoji = {
 			happy: "\uD83D\uDE04",
 			sad: "\uD83D\uDE22"
 		};
 
-		var trim = (function () {
-			if (window.String && window.String.prototype && window.String.prototype.trim)
-				return function (str) { return str.trim(); };
-			var expr = /^\s+|\s+$/g;
-			return function (str) { return str.replace(expr, ""); };
-		})();
-
-		function maskMobilePhone(field) {
-			var reg = /\D/g, behavior = function (val) {
-				return ((val.replace(reg, "").length === 11) ? "(00) 00000-0000" : "(00) 0000-00009");
-			}, opt = {
-				onKeyPress: function (val, e, field, options) {
-					field.mask(behavior.apply({}, arguments), options);
-				}
-			};
-			$(field).mask(behavior, opt);
-		}
-
-		function validateEmail(email) {
-			if (!email || !(email = trim(email)))
-				return false;
-
-			var at = email.indexOf("@"),
-				at2 = email.lastIndexOf("@"),
-				dot = email.lastIndexOf(".");
-
-			return (email.indexOf(":") < 0 && at > 0 && dot > (at + 1) && dot !== (email.length - 1) && at2 === at);
-		}
-
 		function abrirJogo() {
 			var href = window.location.href, i;
 			// endsWith() dá pau em alguns browsers antigos...
-			if ((i = href.indexOf("index.html")) >= 0)
+			if ((i = href.indexOf("ranking.html")) >= 0)
 				href = href.substring(0, i);
 			if (href && href.charAt(href.length - 1) != "/")
 				href += "/";
 			window.location.href = href + "c33ee936b86785c66e2b/";
 		}
+
+		function parseQueryString() {
+			var i, pair, assoc = {}, keyValues = location.search.substring(1).split("&");
+			for (i in keyValues) {
+				pair = keyValues[i].split("=");
+				if (pair.length > 1) {
+					assoc[decodeURIComponent(pair[0].replace(/\+/g, " "))] = decodeURIComponent(pair[1].replace(/\+/g, " "));
+				}
+			}
+			return assoc;
+		};
+
+		var encode = (function () {
+			var lt = /</g, gt = />/g;
+			return function (x) {
+				return (x ? x.replace(lt, "&lt;").replace(gt, "&gt;") : "");
+			};
+		})();
+
+		function mostrarLoading() {
+			Swal.fire({
+				text: "Por favor, aguarde...",
+				didOpen: function () { Swal.showLoading(); }
+			});
+		}
+
+		function gravarPontos() {
+			var hoje = new Date(), mes = hoje.getMonth() + 1, ano = hoje.getFullYear();
+
+			$.ajax({
+				url: "http://129.213.131.233:5000/api/ranking",
+				method: "POST",
+				data: JSON.stringify({
+					name: nome,
+					email: email,
+					phone: celular,
+					points: pontos,
+					year: ano,
+					month: mes
+				}),
+				contentType: "application/json",
+				processData: false,
+				success: function () {
+					window.localStorage.setItem("mosaic-pontos", pontos);
+
+					exibirRanking();
+				},
+				error: function () {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Algo saiu errado, e não foi possível gravar sua pontuação no ranking! Por favor, tente novamente dentro de alguns instantes " + emoji.sad
+					});
+				}
+			});
+		}
+
+		function exibirRanking() {
+			$.ajax({
+				url: "http://129.213.131.233:5000/api/ranking",
+				method: "GET",
+				cache: false,
+				success: function (dados) {
+					var i, total, maior, hoje = new Date(), mes = hoje.getMonth() + 1, ano = hoje.getFullYear(), filtro = [], html = "";
+
+					if (dados && dados.length) {
+						for (i = dados.length - 1; i >= 0; i--) {
+							if (dados[i].month == mes && dados[i].year == ano)
+								filtro.push(dados[i]);
+						}
+					}
+
+					filtro.sort(function (a, b) { return b.points - a.points; });
+
+					total = Math.min(8, filtro.length);
+					if (total > 0) {
+						maior = Math.max(1, filtro[0].points);
+						for (i = 0; i < total; i++)
+							html += '<tr><td class="coluna1"><span>' + encode(filtro[i].name) + '</span></td><td class="coluna2"><span class="barra barra' + (i + 1) + '" style="width: ' + (filtro[i].points * 100 / maior) + '%;"></span></td><td class="coluna3">' + (filtro[i].points == 1 ? '1 acerto' : (filtro[i].points + ' acertos')) + '</td></tr>';
+					}
+
+					if (nome && email && celular && !isNaN(pontos))
+						html += '<tr class="ultima"><td colspan="3">Nessa última tentativa você teve ' + (pontos == 1 ? '1 acerto' : (pontos + ' acertos')) + '! ' + emoji.happy + '</td></tr>';
+
+					$("#tabela").html(html);
+
+					Swal.close();
+
+					setTimeout(function () {
+						cover.className = "fade";
+
+						setTimeout(function () {
+							document.body.removeChild(cover);
+						}, 500);
+					}, 50);
+				},
+				error: function () {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Algo saiu errado, e não foi possível exibir o ranking! Por favor, tente novamente dentro de alguns instantes " + emoji.sad
+					});
+				}
+			});
+		}
+
+		var queryString = null,
+			nome = null,
+			email = null,
+			celular = null,
+			pontos = NaN;
 
 		if (!("localStorage" in window)) {
 			Swal.fire({
@@ -422,95 +556,17 @@
 				title: "Oops...",
 				text: "Desculpe! Seu navegador não suporta a execução do jogo " + emoji.sad
 			});
-		} else if (window.localStorage.getItem("mosaic-nome") && window.localStorage.getItem("mosaic-email") && window.localStorage.getItem("mosaic-celular")) {
-			abrirJogo();
+		} else if ((nome = window.localStorage.getItem("mosaic-nome")) && (email = window.localStorage.getItem("mosaic-email")) && (celular = window.localStorage.getItem("mosaic-celular")) && (queryString = parseQueryString()) && !isNaN(pontos = parseInt(queryString["pontos"]))) {
+			mostrarLoading();
+
+			if (pontos == parseInt(window.localStorage.getItem("mosaic-pontos")))
+				exibirRanking();
+			else
+				gravarPontos();
 		} else {
-			setTimeout(function () {
-				maskMobilePhone("#celular");
+			mostrarLoading();
 
-				main.onsubmit = function (e) {
-					cancelEvent(e);
-
-					var nome = trim($("#nome").val()).normalize(),
-						email = trim($("#email").val()).normalize().toLowerCase(),
-						celular = trim($("#celular").val()).normalize().toLowerCase();
-
-					if (!nome) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu nome " + emoji.happy
-						});
-						return false;
-					}
-
-					if (!email) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu e-mail " + emoji.happy
-						});
-						return false;
-					}
-
-					if (!validateEmail(email)) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, confira seu e-mail " + emoji.happy
-						});
-						return false;
-					}
-
-					if (celular.length < 14) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu telefone com DDD " + emoji.happy
-						});
-						return false;
-					}
-
-					Swal.fire({
-						text: "Por favor, aguarde...",
-						didOpen: function () { Swal.showLoading(); }
-					});
-
-					$.ajax({
-						url: "http://129.213.131.233:5000/api/lead",
-						method: "POST",
-						data: JSON.stringify({
-							name: nome,
-							email: email,
-							phone: celular
-						}),
-						contentType: "application/json",
-						processData: false,
-						success: function () {
-							window.localStorage.setItem("mosaic-nome", nome);
-							window.localStorage.setItem("mosaic-email", email);
-							window.localStorage.setItem("mosaic-celular", celular);
-
-							abrirJogo();
-						},
-						error: function () {
-							Swal.fire({
-								icon: "error",
-								title: "Oops...",
-								text: "Algo saiu errado! Por favor, tente novamente dentro de alguns instantes " + emoji.sad
-							});
-						}
-					});
-
-					return false;
-				};
-
-				cover.className = "fade";
-
-				setTimeout(function () {
-					document.body.removeChild(cover);
-				}, 500);
-			}, 500); // para dar um tempinho para a imagem carregar...
+			exibirRanking();
 		}
 	</script>
 </body>
