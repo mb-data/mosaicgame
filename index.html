@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+﻿<!DOCTYPE html>
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
 	<meta property="og:locale" content="pt_BR" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://mosaicco.com.br/" />
@@ -23,495 +23,150 @@
 	<meta name="mobile-web-app-capable" content="yes" />
 	<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="mobile-web-app-title" content="Mosaic Fertilizantes" />
-	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png" />
-	<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png" />
-	<link rel="icon" type="image/png" sizes="512x512" href="favicons/favicon-512x512.png" />
-	<link rel="icon" type="image/png" sizes="192x192" href="favicons/favicon-192x192.png" />
-	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png" />
-	<link rel="icon" type="image/png" sizes="48x48" href="favicons/favicon-48x48.png" />
-	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
-	<link rel="Shortcut Icon" href="favicons/favicon.png" />
-	<link rel="manifest" href="favicons/manifest.webmanifest" />
-	<meta name="msapplication-config" content="favicons/browserconfig.xml" />
+	<link rel="apple-touch-icon" sizes="57x57" href="./favicons/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="./favicons/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="./favicons/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="./favicons/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="./favicons/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="./favicons/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="./favicons/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="./favicons/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-icon-180x180.png" />
+	<link rel="apple-touch-icon" sizes="256x256" href="./icon-256.png" />
+	<link rel="icon" type="image/png" sizes="512x512" href="./favicons/favicon-512x512.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="./favicons/favicon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png" />
+	<link rel="icon" type="image/png" sizes="48x48" href="./favicons/favicon-48x48.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png" />
+	<link rel="Shortcut Icon" href="./favicons/favicon.png" />
+	<meta name="msapplication-config" content="./favicons/browserconfig.xml" />
 	<meta name="theme-color" content="#004842" />
 
 	<title>Mosaic Fertilizantes</title>
+	
+	<!-- Standardised web app manifest -->
+	<link rel="manifest" href="./favicons/manifest.webmanifest" />
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="HandheldFriendly" content="true" />
+	
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes" />
+	<link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
 
-	<link rel="stylesheet" type="text/css" href="sweetalert2.min.css" />
-
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
 	<style type="text/css">
-		html {
-			height: 100%;
-			min-height: 100%;
-			max-height: 100%;
-			-webkit-tap-highlight-color: rgba(0,0,0,0);
-		}
-
-		html, body, #cover {
-			background: #000; /* Safari iOS e Opera Android em fullscreen */
-		}
-
-		body {
-			/* background-image: url(assets/images/background.png); */
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-		}
-
-		html, body, button, input, textarea, select, p, div {
-			font-family: sans-serif;
-			font-style: normal;
-			font-weight: 400;
-			line-height: 1;
-		}
-
-		p {
-			margin: 0;
-		}
-
-		p + p {
-			margin-top: 0.5em;
-		}
-
-		body {
+		* {
 			padding: 0;
 			margin: 0;
+		}
+		html, body {
+			background: #000;
 			color: #fff;
-			width: 100%;
-			height: 100%;
-			min-height: 100%;
-			max-height: 100%;
 			overflow: hidden;
+			touch-action: none;
+			-ms-touch-action: none;
 		}
-
-		#main {
-			position: absolute;
-			z-index: 1;
-			overflow: hidden;
-			margin: 0;
-			padding: 0;
-			border: 0;
-			background-image: url(fundo.jpg);
-			background-position: top left;
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
 		}
+    </style>
+	
 
-		#aviso {
-			position: absolute;
-			z-index: 9;
-			left: 0;
-			top: 1em;
-			width: 100%;
-			text-align: center;
-			pointer-events: none;
+</head> 
+ 
+<body> 
+	<div id="fb-root"></div>
+	
+	<script>
+	// Issue a warning if trying to preview an exported project on disk.
+	(function(){
+		// Check for running exported on file protocol
+		if (window.location.protocol.substr(0, 4) === "file")
+		{
+			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
 		}
-
-		#cover {
-			position: fixed;
-			z-index: 10;
-			left: 0;
-			top: 0;
-			width: 4px;
-			height: 4px;
-			-webkit-transform-origin: left top;
-			-moz-transform-origin: left top;
-			-o-transform-origin: left top;
-			transform-origin: left top;
-			-webkit-transform: scale(999,999);
-			-moz-transform: scale(999,999);
-			-o-transform: scale(999,999);
-			transform: scale(999,999);
-		}
-
-		.fade {
-			opacity: 0;
-			-webkit-transition: opacity ease-in-out 0.5s;
-			-moz-transition: opacity ease-in-out 0.5s;
-			-o-transition: opacity ease-in-out 0.5s;
-			transition: opacity ease-in-out 0.5s;
-		}
-
-		.visible {
-			opacity: 1;
-		}
-
-		h1 {
-			font-size: 1px;
-			color: transparent;
-		}
-
-		input, input:focus, button, button:focus {
-			outline: none;
-		}
-
-		input {
-			position: absolute;
-			left: 27.34375%; /* 525px / 1920px */
-			width: 45.3125%; /* (1920px - 525px - 525px) / 1920px */
-			height: 7.5%; /* 81px / 1080px */
-			border-radius: 0;
-			box-shadow: none;
-			border: none;
-			background-image: none;
-			background-color: transparent;
-			color: #000;
-			font-weight: normal;
-			margin: 0;
-			font-size: inherit;
-			box-sizing: border-box;
-			text-align: left;
-			padding: 0 0.5em 0 2.75em;
-		}
-
-		#nome {
-			top: 45.2777777778%; /* 489px / 1080px */
-		}
-
-		#email {
-			top: 55.462962963%; /* 599px / 1080px */
-		}
-
-		#celular {
-			top: 65.7407407407%; /* 710px / 1080px */
-		}
-
-		#enviar {
-			position: absolute;
-			left: 38.6458333333%; /* 742px / 1920px */
-			width: 22.7083333333%; /* (1920px - 742px - 742px) / 1920px */
-			height: 8.61111111111%; /* 93px / 1080px */
-			top: 86.4814814815%; /* 934px / 1080px */
-			border-radius: 9999px;
-			box-shadow: none;
-			border: none;
-			background-image: none;
-			background-color: transparent;
-			color: transparent;
-			font-weight: normal;
-			margin: 0;
-			font-size: 1px;
-			box-sizing: border-box;
-			padding: 0;
-			cursor: pointer;
-		}
-
-		#enviar:hover {
-			background-color: rgba(0, 228, 171, 0.15);
-		}
-
-		#enviar:active {
-			background-color: rgba(0, 228, 171, 0.5);
-		}
-
-		.swal2-popup {
-			font-size: 0.75rem;
-		}
-	</style>
-</head>
-<body>
-	<noscript>Você precisa habilitar o JavaScript para poder acessar a página :(</noscript>
-	<form id="main">
-		<h1>Bem-vindo ao Game da Memória Mosaic Fertilizantes.</h1>
-		<input type="text" spellcheck="false" id="nome" maxlength="100" />
-		<input type="email" spellcheck="false" id="email" maxlength="100" />
-		<input type="text" spellcheck="false" id="celular" maxlength="15" placeholder="(99) 99999-9999" />
-		<button type="submit" id="enviar">quero jogar</button>
-	</form>
-	<div id="cover" class="fade visible"></div>
-
-	<script type="text/javascript" src="promise.js"></script>
-	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="jquery.mask.min.js"></script>
-	<script type="text/javascript" src="sweetalert2.min.js"></script>
-	<script type="text/javascript">
-		// @ts-check
-		"use strict";
-
-		// Esses são valores de referência! É só ajustar aqui que o resto se adapta!
-		var larguraPadrao = 1280,
-			alturaPadrao = 720,
-			// O tamanho da fonte (1em) vai ser alturaTela / 24 (se quiser mais ou menos, é só ajustar aqui)
-			linhasPorTela = 24,
-			// Quando tamanhoDaFonteInteiro é true, tamanhos de fonte como 12.3, 12.5, 12.95 viram 12
-			tamanhoDaFonteInteiro = true,
-			// Se ocuparTelaUltraWide for false, podem aparecer barras laterais em telas ultrawide
-			ocuparTelaUltraWide = false;
-
-		var main = document.getElementById("main"),
-			cover = document.getElementById("cover"),
-			larguraTela = 0,
-			alturaTela = 0,
-			tamanhoDaFonte = 0,
-			fatorDeEscala = -1,
-			aviso = null,
-			iOSOuSafari = (function () {
-				// https://stackoverflow.com/q/9038625/3569421
-				if ((navigator.userAgent.indexOf("Chrome") <= 0 && navigator.userAgent.indexOf("Safari") >= 0) ||
-					(navigator.userAgent.indexOf("Mac") >= 0 && ("ontouchend" in document)))
-					return true;
-				switch (navigator.platform) {
-					case "iPad Simulator":
-					case "iPhone Simulator":
-					case "iPod Simulator":
-					case "iPad":
-					case "iPhone":
-					case "iPod":
-						return true;
-				}
-				return false;
-			})();
-
-		function ajustarJanela() {
-			larguraTela = window.innerWidth,
-			alturaTela = window.innerHeight;
-
-			if (document.documentElement && ("clientWidth" in document.documentElement)) {
-				larguraTela = document.documentElement.clientWidth;
-				alturaTela = document.documentElement.clientHeight;
-			}
-
-			if (iOSOuSafari) {
-				var bodyRect = null;
-
-				if (document.documentElement && ("getBoundingClientRect" in document.documentElement))
-					bodyRect = document.documentElement.getBoundingClientRect();
-				else if (("getBoundingClientRect" in document.body))
-					bodyRect = document.body.getBoundingClientRect();
-
-				if (bodyRect) {
-					larguraTela = bodyRect.right - bodyRect.left;
-					alturaTela = bodyRect.bottom - bodyRect.top;
-				}
-			}
-
-			var transform = "scale(" + Math.ceil(larguraTela * 0.25) + "," + Math.ceil(alturaTela * 0.25) + ")";
-			cover.style["oTransform"] = transform;
-			cover.style["msTransform"] = transform;
-			cover.style["mozTransform"] = transform;
-			cover.style["webkitTransform"] = transform;
-			cover.style.transform = transform;
-
-			var fatorDeEscalaAntigo = fatorDeEscala,
-				ratioAtual = larguraTela / alturaTela,
-				ratioDesejado = larguraPadrao / alturaPadrao,
-				width = larguraTela,
-				height = alturaTela;
-
-			if (ratioAtual >= ratioDesejado) {
-				fatorDeEscala = alturaTela / alturaPadrao;
-				// Tenta ocupar a tela toda em telas ultrawide
-				if (!ocuparTelaUltraWide) {
-					width = larguraPadrao * fatorDeEscala;
-				}
-			} else {
-				fatorDeEscala = larguraTela / larguraPadrao;
-				height = alturaPadrao * fatorDeEscala;
-			}
-
-			var left = ((larguraTela - width) * 0.5) | 0,
-				top = ((alturaTela - height) * 0.5) | 0;
-			if (left < 0) {
-				left = 0;
-			}
-			if (top < 0) {
-				top = 0;
-			}
-
-			main.style.left = left + "px";
-			main.style.top = top + "px";
-			main.style.width = width + "px";
-			main.style.height = height + "px";
-
-			if (larguraTela <= alturaTela) {
-				if (!aviso) {
-					aviso = document.createElement("div");
-					aviso.setAttribute("id", "aviso");
-					aviso.textContent = "A página funciona melhor no modo paisagem (deitada)";
-					document.body.appendChild(aviso);
-				}
-			} else if (aviso) {
-				document.body.removeChild(aviso);
-				aviso = null;
-			}
-
-			if (fatorDeEscala !== fatorDeEscalaAntigo) {
-				tamanhoDaFonte = height / linhasPorTela;
-				if (tamanhoDaFonteInteiro) {
-					tamanhoDaFonte = tamanhoDaFonte | 0;
-				}
-
-				var fontSize = tamanhoDaFonte + "px";
-				if (document.documentElement) {
-					document.documentElement.style.fontSize = fontSize;
-				}
-				document.body.style.fontSize = fontSize;
-			}
-		}
-
-		window.onresize = ajustarJanela;
-
-		ajustarJanela();
-
-		function cancelEvent(evt) {
-			if (evt) {
-				if ("isCancelled" in evt)
-					evt.isCancelled = true;
-				if ("preventDefault" in evt)
-					evt.preventDefault();
-				if ("stopPropagation" in evt)
-					evt.stopPropagation();
-			}
-			return false;
-		}
-
-		var emoji = {
-			happy: "\uD83D\uDE04",
-			sad: "\uD83D\uDE22"
-		};
-
-		var trim = (function () {
-			if (window.String && window.String.prototype && window.String.prototype.trim)
-				return function (str) { return str.trim(); };
-			var expr = /^\s+|\s+$/g;
-			return function (str) { return str.replace(expr, ""); };
-		})();
-
-		function maskMobilePhone(field) {
-			var reg = /\D/g, behavior = function (val) {
-				return ((val.replace(reg, "").length === 11) ? "(00) 00000-0000" : "(00) 0000-00009");
-			}, opt = {
-				onKeyPress: function (val, e, field, options) {
-					field.mask(behavior.apply({}, arguments), options);
-				}
-			};
-			$(field).mask(behavior, opt);
-		}
-
-		function validateEmail(email) {
-			if (!email || !(email = trim(email)))
-				return false;
-
-			var at = email.indexOf("@"),
-				at2 = email.lastIndexOf("@"),
-				dot = email.lastIndexOf(".");
-
-			return (email.indexOf(":") < 0 && at > 0 && dot > (at + 1) && dot !== (email.length - 1) && at2 === at);
-		}
-
-		function abrirJogo() {
-			var href = window.location.href, i;
-			// endsWith() dá pau em alguns browsers antigos...
-			if ((i = href.indexOf("index.html")) >= 0)
-				href = href.substring(0, i);
-			if (href && href.charAt(href.length - 1) != "/")
-				href += "/";
-			window.location.href = href + "c33ee936b86785c66e2b/";
-		}
-
-		if (!("localStorage" in window)) {
-			Swal.fire({
-				icon: "error",
-				title: "Oops...",
-				text: "Desculpe! Seu navegador não suporta a execução do jogo " + emoji.sad
-			});
-		} else if (window.localStorage.getItem("mosaic-nome") && window.localStorage.getItem("mosaic-email") && window.localStorage.getItem("mosaic-celular")) {
-			abrirJogo();
-		} else {
-			setTimeout(function () {
-				maskMobilePhone("#celular");
-
-				main.onsubmit = function (e) {
-					cancelEvent(e);
-
-					var nome = trim($("#nome").val()).normalize(),
-						email = trim($("#email").val()).normalize().toLowerCase(),
-						celular = trim($("#celular").val()).normalize().toLowerCase();
-
-					if (!nome) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu nome " + emoji.happy
-						});
-						return false;
-					}
-
-					if (!email) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu e-mail " + emoji.happy
-						});
-						return false;
-					}
-
-					if (!validateEmail(email)) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, confira seu e-mail " + emoji.happy
-						});
-						return false;
-					}
-
-					if (celular.length < 14) {
-						Swal.fire({
-							icon: "error",
-							title: "Oops...",
-							text: "Por favor, preencha seu telefone com DDD " + emoji.happy
-						});
-						return false;
-					}
-
-					Swal.fire({
-						text: "Por favor, aguarde...",
-						didOpen: function () { Swal.showLoading(); }
-					});
-
-					$.ajax({
-						url: "http://129.213.131.233:5000/api/lead",
-						method: "POST",
-						data: JSON.stringify({
-							name: nome,
-							email: email,
-							phone: celular
-						}),
-						contentType: "application/json",
-						processData: false,
-						success: function () {
-							window.localStorage.setItem("mosaic-nome", nome);
-							window.localStorage.setItem("mosaic-email", email);
-							window.localStorage.setItem("mosaic-celular", celular);
-
-							abrirJogo();
-						},
-						error: function () {
-							Swal.fire({
-								icon: "error",
-								title: "Oops...",
-								text: "Algo saiu errado! Por favor, tente novamente dentro de alguns instantes " + emoji.sad
-							});
-						}
-					});
-
-					return false;
-				};
-
-				cover.className = "fade";
-
-				setTimeout(function () {
-					document.body.removeChild(cover);
-				}, 500);
-			}, 500); // para dar um tempinho para a imagem carregar...
-		}
+	})();
 	</script>
-</body>
-</html>
+	
+	<!-- The canvas must be inside a div called c2canvasdiv -->
+	<div id="c2canvasdiv">
+	
+		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+		<canvas id="c2canvas" width="1920" height="1080">
+			<!-- This text is displayed if the visitor's browser does not support HTML5.
+			You can change it, but it is a good idea to link to a description of a browser
+			and provide some links to download some popular HTML5-compatible browsers. -->
+			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+			<a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+		</canvas>
+		
+	</div>
+	
+	<!-- Pages load faster with scripts at the bottom -->
+	
+	<!-- Construct 2 exported games require jQuery. -->
+	<script src="jquery-3.4.1.min.js"></script>
+
+
+	
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<script src="c2runtime.js"></script>
+
+    <script>
+		// Start the Construct 2 project running on window load.
+		jQuery(document).ready(function ()
+		{			
+			// Create new runtime using the c2canvas
+			cr_createRuntime("c2canvas");
+		});
+		
+		// Pause and resume on page becoming visible/invisible
+		function onVisibilityChanged() {
+			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+				cr_setSuspended(true);
+			else
+				cr_setSuspended(false);
+		};
+		
+		document.addEventListener("visibilitychange", onVisibilityChanged, false);
+		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+		
+		function OnRegisterSWError(e)
+		{
+			console.warn("Failed to register service worker: ", e);
+		};
+		
+		// Runtime calls this global method when ready to start caching (i.e. after startup).
+		// This registers the service worker which caches resources for offline support.
+		window.C2_RegisterSW = function C2_RegisterSW()
+		{
+			if (!navigator.serviceWorker)
+				return;		// no SW support, ignore call
+			
+			try {
+				navigator.serviceWorker.register("sw.js", { scope: "./" })
+				.then(function (reg)
+				{
+					console.log("Registered service worker on " + reg.scope);
+				})
+				.catch(OnRegisterSWError);
+			}
+			catch (e)
+			{
+				OnRegisterSWError(e);
+			}
+		};
+    </script>
+</body> 
+</html> 

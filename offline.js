@@ -1,5 +1,5 @@
 ﻿{
-	"version": 1641999257,
+	"version": 1642537707,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
@@ -32,6 +32,13 @@
 		"images/timerhalf_bg-sheet0.png",
 		"images/timerfill_radial-sheet0.png",
 		"images/fullscreenbt-sheet0.png",
+		"images/bt_game_1-sheet0.png",
+		"images/bt_game_2-sheet0.png",
+		"images/bt_game_3-sheet0.png",
+		"images/mosaic_tela_final-sheet0.png",
+		"images/mosaic_menu_bg-sheet0.png",
+		"images/bt_reload-sheet0.png",
+		"images/bt_menu-sheet0.png",
 		"icon-16.png",
 		"icon-32.png",
 		"icon-114.png",
